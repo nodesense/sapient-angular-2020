@@ -1,0 +1,26 @@
+<h2>Contact</h2>
+
+<!-- contact is parent component 
+    address is child component
+
+    parent to  child, 
+        property binding, @Input
+-->
+
+<!--
+
+    @Ouput
+    contactEvent
+
+-->
+<app-address [address]="headOffice"
+             (contactEvent)="contactHandler($event)"
+>
+    <h4>Head Office</h4>
+</app-address>
+
+<app-address [address]="branchOffice"
+        (contactEvent)="contactHandler($event)"
+>
+    <h4>Branch Office</h4>
+</app-address>
