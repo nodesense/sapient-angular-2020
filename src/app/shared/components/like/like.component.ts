@@ -11,6 +11,8 @@ import { Component, OnInit,
 })
 export class LikeComponent implements OnInit {
 
+  isMouseOver = false;
+  
   // [(likes)]="homePageLikes"
   // [(likes)]="productPageLikes"
 

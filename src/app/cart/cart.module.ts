@@ -1,10 +1,19 @@
-import { CartService } from './services/cart.service';
+ import { CartService } from './services/cart.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './components/cart/cart.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
+
+import {Route, RouterModule} from "@angular/router";
+
+const routes: Route[] = [
+  {
+    path: 'cart',
+    component: CartComponent
+  }
+]
 
 
 @NgModule({
@@ -14,7 +23,8 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     CartSummaryComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes)
   ],
   exports: [
     CartComponent

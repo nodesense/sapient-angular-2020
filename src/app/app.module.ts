@@ -18,6 +18,36 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import {FormsModule} from '@angular/forms';
 
+import {RouterModule, Route} from '@angular/router';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ProductRoutingModule } from './product/product-routing.module';
+
+// 1. configuration
+const routes: Route[] = [
+    // map the path to component
+    {
+        path: '',
+        component: HomeComponent
+    },
+    {
+        path: 'about',
+        component: AboutComponent
+    },
+    {
+        path: 'contact',
+        component: ContactComponent
+    },
+    {
+        path: 'counter',
+        component: CounterComponent
+    },
+    // at last
+    {
+        path: '**',
+        component: NotFoundComponent
+    }
+];
+
 
 @NgModule({
     // meta data about module
@@ -25,7 +55,11 @@ import {FormsModule} from '@angular/forms';
         BrowserModule,
         SharedModule,
         FormsModule,
-        CartModule
+        CartModule,
+        ProductRoutingModule,
+        // 2. apply the configuration
+        // root/app/main module
+        RouterModule.forRoot(routes)
     ],
 
     declarations: [
@@ -37,6 +71,7 @@ import {FormsModule} from '@angular/forms';
         CounterComponent,
         HeaderComponent,
         FooterComponent,
+        NotFoundComponent,
         // HeaderComponent,
         //Footer, Home, etc
     ],

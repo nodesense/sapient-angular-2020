@@ -1,4 +1,7 @@
-<div>
+<div   [ngClass]="{ highlight : isMouseOver}" 
+      (mouseenter) = "isMouseOver = true"
+      (mouseleave) = "isMouseOver = false"
+>
    <p> Likes {{likes}} </p>
    <button (click)="up()"> +1</button>
    <button (click)="down()">-1</button>

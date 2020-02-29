@@ -1,3 +1,4 @@
+import { CartItem } from './../../models/cart-item';
 import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CartListComponent implements OnInit {
 
+  cartItems: CartItem[];
+
   constructor(private cartService: CartService) {
       console.log('CartListComponent created');
-   }
+   
+      this.cartItems = this.cartService.cartItems;
+      
+    }
 
   ngOnInit() {
   }
