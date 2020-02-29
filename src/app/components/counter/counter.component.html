@@ -49,3 +49,8 @@
 <button (click)="counter = counter - 1">
     -1
 </button>
+
+
+<p> Power Pipe 2^counter =  {{ 2 | power:counter}}</p>
+<p> Power Pipe counter^3 =  {{ counter | power:3}}</p>
+<p> Power Pipe counter^counter =  {{ counter | power:counter}}</p>

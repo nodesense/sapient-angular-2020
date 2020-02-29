@@ -22,6 +22,15 @@ import {RouterModule, Route} from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ProductRoutingModule } from './product/product-routing.module';
 
+
+import {LocationStrategy, 
+        HashLocationStrategy,
+        PathLocationStrategy // default
+    } from '@angular/common';
+
+import {HttpClientModule} from '@angular/common/http';
+
+
 // 1. configuration
 const routes: Route[] = [
     // map the path to component
@@ -53,6 +62,7 @@ const routes: Route[] = [
     // meta data about module
     imports: [
         BrowserModule,
+        HttpClientModule, 
         SharedModule,
         FormsModule,
         CartModule,
@@ -75,6 +85,13 @@ const routes: Route[] = [
         // HeaderComponent,
         //Footer, Home, etc
     ],
+
+    providers: [
+        // {
+        //     provide: LocationStrategy,
+        //     useClass: HashLocationStrategy
+        // }
+    ], 
 
     bootstrap: [
         AppComponent

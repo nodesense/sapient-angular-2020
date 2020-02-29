@@ -16,6 +16,9 @@ ng g interface shared/models/address
 
 ng g c shared/components/like
 
+ng g pipe shared/pipes/filter
+ng g pipe shared/pipes/power
+ng g pipe shared/pipes/sort
 
 --
 cart module/feature based module
@@ -137,3 +140,39 @@ SERVICE
     -- Hold Application Data State
     -- Share data amoung component /siblings
     -- Singleton (shared) or (instance/per component, no sharing)
+
+
+DAY-2 Revision
+
+    ngClass, ngIf, ngIf Else, ngFor, ng-content, ngTemplate
+    # - template reference variable
+        DOM reference
+    built in pipes
+
+    dependency injection
+    Injectable
+    Service
+        share the data between components
+        having application state
+        business logic
+
+    Routing
+        RouterModule
+            forRoot (routesConfig) .. 
+                directives, many services speicifc to routing
+            forChild(routesConfig)
+                directives,
+
+            path --> component
+            ** - wild card, not found
+            back/forward/bookmarking
+
+    Two Way Binding
+        Property Binding
+        Event Binding
+
+        Ex: NgModel, 
+            Custom Two Binding
+                PropertyName
+                PropertyNameChange - event emitter
+                

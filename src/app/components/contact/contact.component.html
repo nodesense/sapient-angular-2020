@@ -1,5 +1,22 @@
 <h2>Contact</h2>
 
+<!--
+
+    ?. - elvis operator - null check within template
+
+-->
+
+<p> Main Office City {{mainOffice?.city}} </p>
+
+<!-- DOM reference -->
+
+<p #message> </p>
+<input #greeting />
+
+<button (click)="message.textContent = greeting.value">
+    Set Message
+</button>
+
 <!-- contact is parent component 
     address is child component
 

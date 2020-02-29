@@ -1,3 +1,4 @@
+import { SharedModule } from './../shared/shared.module';
  import { CartService } from './services/cart.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -24,7 +25,8 @@ const routes: Route[] = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    SharedModule
   ],
   exports: [
     CartComponent

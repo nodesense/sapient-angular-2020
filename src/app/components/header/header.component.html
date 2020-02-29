@@ -46,6 +46,14 @@
         Contact
     </a>
 
+
+    <a  routerLink="/counter" 
+    class="button"
+    routerLinkActive="success">
+    Counter
+    </a>
+ 
+
     <a  routerLink="/auth/login" 
     class="button"
     routerLinkActive="success">
@@ -53,7 +61,7 @@
     </a>
 
 
-    <button >
+    <button (click)="test = 1" >
         {{amount$ | async | currency:'INR'}}
         ({{count$ | async}}) items
     </button>

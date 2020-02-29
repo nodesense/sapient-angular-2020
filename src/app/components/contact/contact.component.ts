@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
+  mainOffice: Address = undefined; //null
+
   headOffice: Address = {
                           city: 'BLR',
                           state: 'KA',

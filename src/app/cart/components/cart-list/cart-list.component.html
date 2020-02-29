@@ -14,7 +14,7 @@
         <th>Total</th>
     </tr>
 
-    <tr *ngFor="let cartItem of cartItems">
+    <tr *ngFor="let cartItem of (cartItems | sort:'price':'desc') ">
         <td>{{cartItem.name | uppercase}}</td>
         <td>{{cartItem.price | currency:'INR' }}</td>
         <td>{{cartItem.qty}}</td>
