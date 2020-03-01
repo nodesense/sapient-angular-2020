@@ -7,7 +7,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class CounterComponent implements OnInit, OnDestroy {
 
-  counter: number = 0;
+   counter: number = 0;
 
   timerHandle : any;
 

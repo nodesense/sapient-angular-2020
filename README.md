@@ -237,3 +237,26 @@ Cross Origin
     http://www.example.com:8080 [Cross Origion, port difference]
 
     http://example.com/path2/products/  [Same Origin]
+
+
+JIT  (html converted to Js in browser)
+    ng serve
+    ng build
+AOT (build time, converted to JS in build time, loads faster)
+
+    ng build --prod
+        apply AOT, production
+
+    .html view --> TypeScript --> Transpile to JS
+    Typechecking the views
+
+configured in angular.json
+
+or in cli
+
+ng serve --aot
+
+For staging build
+
+ng build --configuration=staging
+

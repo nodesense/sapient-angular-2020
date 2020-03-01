@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import {of} from 'rxjs';
 
 console.log("ENV ", environment)
 
@@ -36,9 +37,8 @@ export class ProductService {
   // GET /api/products/100
   getProduct(id: any): Observable<Product> {
     return this.http
-          .get<Product>(`${environment.apiEndPoint}/api/products/${id}`);
+         .get<Product>(`${environment.apiEndPoint}/api/products/${id}`);
   }
-
 
   // Cache
   // Option 1. In memory JS [on refresh, removed] 
