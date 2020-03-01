@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/guards/auth.guard';
 import { CartModule } from './cart/cart.module';
 import { SharedModule } from './shared/shared.module';
  // module is logical colleciton of
@@ -18,9 +19,9 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import {FormsModule} from '@angular/forms';
 
-import {RouterModule, Route} from '@angular/router';
+import { RouterModule, Route, CanActivate } from '@angular/router';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ProductRoutingModule } from './product/product-routing.module';
+// import { ProductRoutingModule } from './product/product-routing.module';
 
 
 import {LocationStrategy, 
@@ -28,8 +29,14 @@ import {LocationStrategy,
         PathLocationStrategy // default
     } from '@angular/common';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ErrorHandlerService } from './services/error-handler.service';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { GridComponent } from './components/grid/grid.component';
+import { TableComponent } from './components/table/table.component';
+import { ListComponent } from './components/list/list.component';
+import { HostTemplateDirective } from './directives/host-template.directive';
 
 
 // 1. configuration
@@ -48,8 +55,17 @@ const routes: Route[] = [
         component: ContactComponent
     },
     {
+        path: 'products',
+        loadChildren: './product/product-routing.module#ProductRoutingModule',
+        canActivate: [AuthGuard]
+    }, 
+    {
         path: 'counter',
         component: CounterComponent
+    },
+    {
+        path: 'auth/login',
+        component: LoginComponent
     },
     // at last
     {
@@ -67,7 +83,7 @@ const routes: Route[] = [
         SharedModule,
         FormsModule,
         CartModule,
-        ProductRoutingModule,
+       // ProductRoutingModule,
         
         // 2. apply the configuration
         // root/app/main module
@@ -84,6 +100,11 @@ const routes: Route[] = [
         HeaderComponent,
         FooterComponent,
         NotFoundComponent,
+        LoginComponent,
+        GridComponent,
+        TableComponent,
+        ListComponent,
+        HostTemplateDirective,
         // HeaderComponent,
         //Footer, Home, etc
     ],
@@ -99,8 +120,20 @@ const routes: Route[] = [
             useClass: ErrorHandlerService
         },
 
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true
+          }
+
     ], 
 
+    entryComponents: [
+        TableComponent,
+        GridComponent,
+        ListComponent
+    ],
+    
     bootstrap: [
         AppComponent
     ]

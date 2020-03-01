@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class CanEditGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    state: RouterStateSnapshot): any {
     
       console.log("Can Edit guard ", state.url);
 

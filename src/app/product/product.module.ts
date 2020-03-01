@@ -6,7 +6,8 @@ import { ProductHomeComponent } from './components/product-home/product-home.com
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
 import { ProductSearchComponent } from './components/product-search/product-search.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SaveAlertGuard } from './guards/save-alert.guard';
 
 
 
@@ -21,7 +22,12 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     RouterModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+  ],
+
+  providers: [
+    SaveAlertGuard
   ]
 })
 export class ProductModule { }

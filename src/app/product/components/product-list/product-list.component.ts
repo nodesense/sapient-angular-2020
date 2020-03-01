@@ -1,9 +1,12 @@
+import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { CartItem } from './../../../cart/models/cart-item';
 import { Observable, Subscription } from 'rxjs';
 import { CartService } from './../../../cart/services/cart.service';
 import { ProductService } from './../../services/product.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../../models/product';
+import {of} from 'rxjs';
+
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +24,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
   // subscription: Subscription;
 
   constructor(private productService: ProductService,
-              private cartService: CartService) { }
+              private cartService: CartService,
+              private activatedRoute: ActivatedRoute,
+              ) { 
+                console.log(this.activatedRoute.snapshot.data);
+                let products:Product[] = this.activatedRoute.snapshot.data.products;
+                // let roles = this.activatedRoute.snapshot.data.roles;
+                this.products$ = of(products);
+              }
 
 
   ngOnInit() {

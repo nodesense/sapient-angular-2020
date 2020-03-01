@@ -1,3 +1,4 @@
+import { Editable } from './../../models/editable';
 import { ProductService } from './../../services/product.service';
 import { Observable } from 'rxjs';
 import { Component, OnInit,
@@ -17,7 +18,7 @@ import {NgForm} from '@angular/forms';
   templateUrl: './product-edit.component.html',
   styleUrls: ['./product-edit.component.scss']
 })
-export class ProductEditComponent implements OnInit {
+export class ProductEditComponent implements OnInit, Editable {
   // @ViewChild is available on ngOnInit
 
   @ViewChild("productForm", {static: true})
@@ -75,8 +76,14 @@ export class ProductEditComponent implements OnInit {
            console.log('saved Product ', savedProduct);
            this.product = savedProduct;
 
+           this.form.reset(this.product); // clear the dirty state
+
            this.router.navigate(['/', 'products', {source: 'edit'}])
         })
+  }
+
+  isSaved(): boolean {
+    return this.form.pristine;
   }
 
 }

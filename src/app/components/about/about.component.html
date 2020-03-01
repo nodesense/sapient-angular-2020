@@ -1,4 +1,20 @@
+<h2>About</h2>
 
-<p>about works!</p>
+
+<select (change)="loadComponent($event.target.value)">
+    <option value='table'>Table</option>
+    <option value='grid'>Grid</option>
+    <option value='list'>List</option>
+
+</select>
+
+<button (click)="clear()">Clear </button> 
 
  
+
+<!-- container -->
+<ng-template host-template>
+
+</ng-template>
+
+<div [innerHtml]="safeHtml"></div>

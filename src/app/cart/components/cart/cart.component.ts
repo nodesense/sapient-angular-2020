@@ -20,14 +20,14 @@ export class CartComponent implements OnInit {
   }
 
   addItem() {
-  const id = Math.ceil(Math.random() * 100000);
-  const cartItem = new CartItem();
-  cartItem.id = id;
-  cartItem.name = `Product ${id}`;
-  cartItem.price = Math.ceil(Math.random()*1000);
-  cartItem.qty = 1;
+    const id = Math.ceil(Math.random() * 100000);
+    const cartItem = new CartItem();
+    cartItem.id = id;
+    cartItem.name = `Product ${id}`;
+    cartItem.price = Math.ceil(Math.random()*1000);
+    cartItem.qty = 1;
 
-  this.cartService.addItem(cartItem);
+    this.cartService.addItem(cartItem);
   }
 
   clear() {

@@ -39,6 +39,18 @@ export class ErrorHandlerService implements ErrorHandler {
             console.error( error.stack );
             console.groupEnd();
 
+
+            this.http.post(`${environment.logEndPoint}/logs/errors`, 
+                           {
+                               message: error.message,
+                               trace: error.stack
+                           })
+            .subscribe( (savedError) => {
+                console.log('error saved successfully')
+            }, (err: any) => {
+                console.log('error while posting errors to server ', err)
+            })
+
         } catch ( handlingError ) {
             console.group( "ErrorHandler" );
             console.warn( "Error when trying to output error." );

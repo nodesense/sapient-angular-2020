@@ -11,6 +11,17 @@ ng g c components/not-found
 
 ng g service services/error-handler
 
+
+ng g c components/login
+ng g service services/auth-interceptor
+
+
+ng g c components/grid
+ng g c components/table
+ng g c components/list
+
+ng g directive directives/host-template
+
 --
 
 ng g module shared
@@ -26,6 +37,12 @@ ng g pipe shared/pipes/sort
 ng g directive shared/directives/highlight
 
 
+ng g service shared/services/auth
+
+ng g guard shared/guards/auth
+
+
+
 --
 cart module/feature based module
 
@@ -35,6 +52,10 @@ ng g c cart/components/cart-list
 ng g c cart/components/cart-summary
 ng g class cart/models/cart-item
 ng g service cart/services/cart
+
+
+ng g c cart/components/checkout
+
 
 
 --
@@ -57,6 +78,8 @@ ng g class product/models/brand
 ng g guard product/guards/can-edit
 ng g guard product/guards/save-alert
 ng g interface product/models/editable
+
+ng g service product/resolvers/products
 
 
 
@@ -186,3 +209,31 @@ DAY-2 Revision
                 PropertyName
                 PropertyNameChange - event emitter
                 
+
+Same Origin
+    same protocol
+    same domain
+    same port
+    path can vary
+
+    http://example.com/mypath (default port 80)
+    http://example.com/mypath2 (default port 80)
+        share 
+            localStorage,
+            sessionStorage
+            API calls
+            index db
+            cookie [can be limited by path]
+
+Cross Origin
+    example
+
+    url: http://example.com [origin url]
+
+    compare with
+
+    https://example.com [Cross Origin, Protocol vary]
+    http://www.example.com [Cross Origin, domain difference]
+    http://www.example.com:8080 [Cross Origion, port difference]
+
+    http://example.com/path2/products/  [Same Origin]

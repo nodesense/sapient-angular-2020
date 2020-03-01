@@ -26,4 +26,8 @@ export class FooterComponent implements OnInit {
     console.log("ngAfterViewInit", this.highlight.color)
   }
 
+  raise() {
+    throw new Error('Crash');
+  }
+
 }

@@ -8,11 +8,17 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 
 
 import {Route, RouterModule} from "@angular/router";
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes: Route[] = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent
   }
 ]
 
@@ -21,12 +27,15 @@ const routes: Route[] = [
   declarations: [
     CartComponent,
     CartListComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    CheckoutComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     CartComponent

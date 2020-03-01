@@ -16,6 +16,12 @@ export class CartService {
   amount$: BehaviorSubject<number> = new BehaviorSubject(this._amount);
   count$: BehaviorSubject<number> = new BehaviorSubject(this._count);
 
+  //sessionStorage per tab, remain until tab is opened
+  // localStorage for the speicifc browser, always persistent
+  // until the browser clean, removeItem, clear apis called
+  // storage: Storage = window.sessionStorage;
+  storage: Storage = window.localStorage;
+
   get cartItems() {
     return this._cartItems;
   }
@@ -47,6 +53,25 @@ export class CartService {
 
   constructor() {
     console.log('CartService created');
+
+    const strData = this.storage.getItem("cartItems");
+    if (strData) {
+       //FIXME: Array of Object to Array of CartItem
+       this._cartItems = JSON.parse(strData);
+    }
+ 
+    window.onstorage = () => {
+      // When local storage changes, dump the list to
+      // the console.
+      console.log('storage got changed ');
+
+      const strData = this.storage.getItem("cartItems");
+      if (strData) {
+         //FIXME: Array of Object to Array of CartItem
+         this._cartItems = JSON.parse(strData);
+      }
+    };
+
    }
 
    calculate(): void {
@@ -66,6 +91,9 @@ export class CartService {
    addItem(cartItem: CartItem) {
      this._cartItems.push(cartItem);
      this.calculate();
+
+     this.storage.setItem("cartItems", 
+                          JSON.stringify(this._cartItems));
    }
 
    removeItem(id: number) {
@@ -74,12 +102,17 @@ export class CartService {
 
      this._cartItems.splice(index, 1);
      this.calculate();
+
+     this.storage.setItem("cartItems", 
+                          JSON.stringify(this._cartItems));
    }
 
    empty() {
      this._cartItems.splice(0, this._cartItems.length);
      
      this.calculate();
+
+     this.storage.removeItem("cartItems");
    }
 
 
