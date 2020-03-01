@@ -1,10 +1,11 @@
+import { AuthModule } from './auth/auth.module';
 import { CartModule } from './cart/cart.module';
 import { SharedModule } from './shared/shared.module';
  // module is logical colleciton of
 // components, directives, pipes, services
 // dependencies to other modules
 
-import {NgModule} from '@angular/core';
+import {NgModule, ErrorHandler} from '@angular/core';
 
 import {BrowserModule} 
         from '@angular/platform-browser';
@@ -29,6 +30,7 @@ import {LocationStrategy,
     } from '@angular/common';
 
 import {HttpClientModule} from '@angular/common/http';
+import { ErrorHandlerService } from './services/error-handler.service';
 
 
 // 1. configuration
@@ -67,6 +69,7 @@ const routes: Route[] = [
         FormsModule,
         CartModule,
         ProductRoutingModule,
+        AuthModule,
         // 2. apply the configuration
         // root/app/main module
         RouterModule.forRoot(routes)
@@ -91,6 +94,12 @@ const routes: Route[] = [
         //     provide: LocationStrategy,
         //     useClass: HashLocationStrategy
         // }
+
+        {
+            provide: ErrorHandler,
+            useClass: ErrorHandlerService
+        },
+
     ], 
 
     bootstrap: [

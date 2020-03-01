@@ -5,6 +5,7 @@ import { LikeComponent } from './components/like/like.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { PowerPipe } from './pipes/power.pipe';
 import { SortPipe } from './pipes/sort.pipe';
+import { HighlightDirective } from './directives/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { SortPipe } from './pipes/sort.pipe';
     FilterPipe,
     PowerPipe,
     SortPipe,
+    HighlightDirective,
     // private component ....N
   ],
   imports: [
@@ -28,6 +30,7 @@ import { SortPipe } from './pipes/sort.pipe';
     FilterPipe,
     PowerPipe,
     SortPipe,
+    HighlightDirective
   ]
 })
 export class SharedModule { }

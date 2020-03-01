@@ -8,6 +8,9 @@ ng g c components/footer
 
 ng g c components/not-found
 
+
+ng g service services/error-handler
+
 --
 
 ng g module shared
@@ -19,6 +22,9 @@ ng g c shared/components/like
 ng g pipe shared/pipes/filter
 ng g pipe shared/pipes/power
 ng g pipe shared/pipes/sort
+
+ng g directive shared/directives/highlight
+
 
 --
 cart module/feature based module
@@ -47,6 +53,10 @@ ng g service product/services/product
 ng g class  product/models/product
 ng g class product/models/brand
 
+
+ng g guard product/guards/can-edit
+ng g guard product/guards/save-alert
+ng g interface product/models/editable
 
 
 

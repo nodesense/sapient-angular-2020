@@ -1,5 +1,4 @@
-<h2>Product List - {{(products$ | async).length }}</h2>
-
+<h2>Product List - {{(products$ | async)?.length }}</h2>
 
 <select name="fieldName" [(ngModel)]="fieldName" >
     <option value="price">Price</option>
@@ -13,7 +12,7 @@
 </select>
 
 
-<input name="expectedValue"
+<input   name="expectedValue"
        type="number"
        [(ngModel)]="expectedValue"
        />

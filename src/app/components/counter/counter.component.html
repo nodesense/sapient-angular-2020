@@ -1,4 +1,4 @@
-<h2>Counter</h2>
+<h2 appHighlight>Counter</h2>
 
 <!--
  {{expression}} - interpolation,
@@ -17,7 +17,10 @@
 
 -->
 
-<p>Counter {{counter}}</p>
+<p *ngIf="counter % 2 == 0" 
+    appHighlight
+>Counter {{counter}}</p>
+
 <p>Counter + 1 = {{counter + 1}}</p>
 
 <div>
