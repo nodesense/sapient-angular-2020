@@ -1,4 +1,3 @@
-import { AuthModule } from './auth/auth.module';
 import { CartModule } from './cart/cart.module';
 import { SharedModule } from './shared/shared.module';
  // module is logical colleciton of
@@ -69,7 +68,7 @@ const routes: Route[] = [
         FormsModule,
         CartModule,
         ProductRoutingModule,
-        AuthModule,
+        
         // 2. apply the configuration
         // root/app/main module
         RouterModule.forRoot(routes)
